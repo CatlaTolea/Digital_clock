@@ -1,16 +1,20 @@
-# This is a sample Python script.
+from tkinter import *
+from tkinter.ttk import *
+from time import strftime
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+top = Tk()
+top.title("Digital Clock")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def none():
+    text = strftime(" %H,%M,%S %p ")
+    label.config(text=text)
+    label.after(1000, none)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+label = Label(top, font=('digital-7', 50, 'bold'),
+              background='black', foreground='yellow')
+
+label.pack(anchor='center')
+none()
+mainloop()
